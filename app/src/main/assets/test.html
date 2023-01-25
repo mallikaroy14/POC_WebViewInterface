@@ -1,0 +1,26 @@
+<html>
+<body bgcolor="LightYellow">
+<center>
+    <br/>
+    <input id="inputField" style="height:50px;width:300px;font-size:10pt;" type="text" value="">
+    <br/>
+    <br/>
+    <input id="fname" type="text" placeholder="enter your name"/>
+    <br/>
+    <br/>
+    <input id="pswd" type="text" placeholder=" password"/>
+    <br/>
+    <br/>
+    <button onclick="msg();">camera Permission</button>
+</center>
+</body>
+<script>
+	function msg(){
+            Android.requestCameraPermission();
+}
+     function updateFromNative(message){
+		document.getElementById("inputField").value = message;
+    }
+
+</script>
+</html>
