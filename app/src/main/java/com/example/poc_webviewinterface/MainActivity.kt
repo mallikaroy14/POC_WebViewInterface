@@ -2,6 +2,7 @@ package com.example.poc_webviewinterface
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.webkit.WebSettings
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
@@ -18,12 +19,16 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun setUpView() {
+        Log.e("MainActivity", "Hello tags")
         val webViewSettings: WebSettings = webViewJourney.settings
         webViewJourney.loadUrl("https://qa.skaleup.tech/employeeportal/#/")
         webViewSettings.javaScriptEnabled = true
         WebView.setWebContentsDebuggingEnabled(true)
         webViewSettings.domStorageEnabled = true
         webViewSettings.databaseEnabled = true
-        webViewJourney.addJavascriptInterface(PermissionJSInterface(this, webViewJourney), "Android")
+        webViewJourney.addJavascriptInterface(
+            PermissionJSInterface(this, webViewJourney),
+            "Android"
+        )
     }
 }
